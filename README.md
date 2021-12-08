@@ -1,84 +1,33 @@
-# Location-reviews (actual name TBD)
+# Federation 2 from Day One Workshop
 
-This is the final stage for the demo app for course 2 of the next Odyssey series! This project will introduce learners to core federation concepts. They will be building this app from scratch!
+Welcome to FlyBy, the companion app of the "Federation 2 from Day One" Workshop
 
-## How to start the app
+This is a fork of the FlyBy app used in the [Voyage I course](https://www.apollographql.com/tutorials/voyage-part1/) in Odyssey, Apollo's learning platform. If you're looking for a self-directed course for learning Federation, check it out!
 
-To run the server:
+You can [preview the completed demo app here](https://odyssey-flyby.netlify.app/).
 
-1. Navigate to `server`.
-1. Run `npm install && npm start`. This will install all packages in the main server and the subgraphs, then start the main server.
-1. In a separate terminal, navigate to `server` again.
-1. Run `npm run start:subgraphs`. This will start up the 2 subgraphs (locations & reviews).
+## Workshop Prerequisites
 
-Try out queries! Queries are available in the [Workbench](https://apollographql.github.io/apollo-workbench-vscode/) file, or can be found further below.
+- Git
+- Node.js 16 or higher
+- [An Apollo Studio account](https://studio.apollographql.com/login) (free!)
 
-To run the client:
+## Installing Dependencies
 
-1. Navigate to `client`.
-1. Run `npm install && npm start`. This will install all packages in the client and start the application in `localhost:3000`.
-
-### Queries
-
-1. Get all locations for the homepage.
-
-   ```graphql
-   query getAllLocations {
-     locations {
-       id
-       name
-       photo
-       description
-       overallRating
-     }
-   }
+1. Clone this repo
+   ```sh
+   git clone https://github.com/apollosolutions/federation-workshop.git
+   cd federation-workshop
    ```
-
-1. Get details for a specific location.
-
-   ```graphql
-   query getLocationDetails {
-     location(id: "location-1") {
-       id
-       name
-       description
-       photo
-       overallRating
-       reviews {
-         comment
-         rating
-       }
-     }
-   }
+2. Install NPM packages
+   ```sh
+   npm install
    ```
-
-1. Submit a review for a location.
-   ```graphql
-   mutation submitReview {
-     submitReview(review: { comment: "asdada", rating: 5, locationId: "1" }) {
-       code
-       success
-       message
-       review {
-         id
-         comment
-         rating
-       }
-     }
-   }
+3. Install [Rover](https://www.apollographql.com/docs/rover/)
+   ```sh
+   curl -sSL https://rover.apollo.dev/nix/latest | sh
    ```
-
-## Learner's Perspective
-
-The `client` app will be provided for them. We'll focus on building out the server-side.
-
-Concepts to cover in no particular order:
-
-- Entities
-- Subgraph A + Subgraph B = Supergraph
-- Setting up the gateway server
-- Using `rover` to compose the supergraph
-
-## Questions
-
-- How/should we use Workbench to plan our federated graph? (I used it right at the start)
+4. Install [Apollo Router](https://www.apollographql.com/docs/router/)
+   ```sh
+   curl -sSL https://router.apollo.dev/download/nix/latest | sh
+   ```

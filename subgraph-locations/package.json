@@ -1,0 +1,19 @@
+{
+  "name": "subgraph-locations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon . -e js,graphql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.0.0-rc.14",
+    "@apollo/subgraph": "^2.0.0",
+    "graphql": "^16.3.0",
+    "nodemon": "^2.0.13"
+  }
+}
