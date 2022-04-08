@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Box, Heading, Text, VStack} from '@chakra-ui/react';
+import PropTypes from "prop-types";
+import React from "react";
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 
-export const Error = ({children, code, error}) => (
+export const Error = ({ children, code, error }) => (
   <VStack spacing="12">
     <VStack textAlign="center">
       <Heading size="4xl">{code}</Heading>
@@ -27,5 +27,5 @@ export const Error = ({children, code, error}) => (
 Error.propTypes = {
   code: PropTypes.string,
   error: PropTypes.string.isRequired,
-  children: PropTypes.node
+  children: PropTypes.node,
 };

@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
-import ReviewRating from './ReviewRating';
-import {Box, Heading, Stack, Text} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import ReviewRating from "./ReviewRating";
+import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-export default function ReviewCard({rating, comment, location}) {
+export default function ReviewCard({ rating, comment, location }) {
   const highlightStyles = {
-    opacity: '80%',
-    cursor: 'pointer'
+    opacity: "80%",
+    cursor: "pointer",
   };
 
   return (
@@ -37,5 +38,5 @@ ReviewCard.propTypes = {
   id: PropTypes.string,
   comment: PropTypes.string,
   rating: PropTypes.number,
-  location: PropTypes.object
+  location: PropTypes.object,
 };

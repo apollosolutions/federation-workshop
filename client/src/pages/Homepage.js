@@ -1,17 +1,18 @@
-import LocationCard from '../components/LocationCard';
-import ReviewCard from '../components/ReviewCard';
-import {Error} from './Error';
+import React from "react";
+import LocationCard from "../components/LocationCard";
+import ReviewCard from "../components/ReviewCard";
+import { Error } from "./Error";
 
-import Spinner from '../components/Spinner';
+import Spinner from "../components/Spinner";
 import {
   Heading,
   SimpleGrid,
   Skeleton,
   Stack,
   Text,
-  VStack
-} from '@chakra-ui/react';
-import {gql, useQuery} from '@apollo/client';
+  VStack,
+} from "@chakra-ui/react";
+import { gql, useQuery } from "@apollo/client";
 
 export const GET_LATEST_REVIEWS_AND_LOCATIONS = gql`
   query GetLatestReviewsAndLocations {
@@ -39,7 +40,7 @@ export const GET_LATEST_REVIEWS_AND_LOCATIONS = gql`
   }
 `;
 export default function HomePage() {
-  const {error, loading, data} = useQuery(GET_LATEST_REVIEWS_AND_LOCATIONS);
+  const { error, loading, data } = useQuery(GET_LATEST_REVIEWS_AND_LOCATIONS);
   if (error) return <Error error={error.message} />;
   return (
     <Stack direction="column" spacing="12">
@@ -64,7 +65,7 @@ export default function HomePage() {
                   isLoaded={!loading}
                 />
               ))
-            : data?.latestReviews.map(review => (
+            : data?.latestReviews.map((review) => (
                 <ReviewCard key={review.id} {...review} />
               ))}
         </SimpleGrid>
@@ -77,7 +78,7 @@ export default function HomePage() {
           <Spinner />
         ) : (
           <SimpleGrid columns={[1, null, 2]} spacing={4}>
-            {data?.locations.map(location => (
+            {data?.locations.map((location) => (
               <LocationCard key={location.id} {...location} />
             ))}
           </SimpleGrid>

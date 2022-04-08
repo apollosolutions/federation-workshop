@@ -1,22 +1,18 @@
 {
-    "extends": [
-        "@trevorblades/eslint-config/react",
-        "plugin:jsx-a11y/recommended"
-    ],
-    "rules": {
-        "react/react-in-jsx-scope": "off",
-        "no-multi-spaces": ["error"]
-    },
-    "overrides": [
-        {
-            "files": [
-                "**/__tests__/*.js",
-                "**/__tests__/*.jsx",
-                "**.test.js"
-            ],
-            "env": {
-                "jest": true
-            }
-        }
-    ]
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/*.js", "**/__tests__/*.jsx", "**.test.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

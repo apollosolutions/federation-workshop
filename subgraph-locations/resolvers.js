@@ -1,4 +1,5 @@
-const resolvers = {
+/** @type {import("@apollo/subgraph/dist/schema-helper").GraphQLResolverMap} */
+export default {
   Query: {
     locations(_, __, { dataSources }) {
       return dataSources.locationsAPI.getAllLocations();
@@ -7,6 +8,9 @@ const resolvers = {
       return dataSources.locationsAPI.getLocation(id);
     },
   },
+  Location: {
+    __resolveReference({ id }, { dataSources }) {
+      return dataSources.locationsAPI.getLocation(id);
+    },
+  },
 };
-
-module.exports = resolvers;

@@ -1,4 +1,8 @@
-type Query{
+extend schema
+    @link(url: "https://specs.apollo.dev/federation/v2.0",
+          import: ["@key"])
+
+type Query {
   latestReviews: [Review!]!
 }
 
@@ -6,8 +10,8 @@ type Mutation {
   submitReview(review: ReviewInput): SubmitReviewResponse
 }
 
-extend type Location @key(fields: "id") {
-  id: ID! @external
+type Location @key(fields: "id") {
+  id: ID!
   "The calculated overall rating based on all reviews"
   overallRating: Float
   "All submitted reviews about this location"
@@ -30,7 +34,7 @@ input ReviewInput {
   "A number from 1 - 5 with 1 being lowest and 5 being highest"
   rating: Int!
   "Location Id"
-  locationId: String!
+  locationId: ID!
 }
 
 type SubmitReviewResponse {

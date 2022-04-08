@@ -1,8 +1,9 @@
 {
-  "name": "reviews",
+  "name": "subgraph-reviews",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon . -e js,graphql"
   },
@@ -10,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/subgraph": "^2.0.0-preview.12",
     "apollo-server": "^3.4.0",
-    "fs": "0.0.1-security",
-    "graphql": "^15.6.1",
+    "graphql": "^16.3.0",
     "nodemon": "^2.0.13"
   }
 }

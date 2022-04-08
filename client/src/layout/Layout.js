@@ -1,11 +1,12 @@
-import Nav from '../components/Nav';
-import PropTypes from 'prop-types';
-import {Container} from '@chakra-ui/react';
+import React from "react";
+import Nav from "../components/Nav";
+import PropTypes from "prop-types";
+import { Container } from "@chakra-ui/react";
 
 export default function Layout({
   noNav,
   children,
-  containerSize = 'container.xl'
+  containerSize = "container.xl",
 }) {
   return (
     <>
@@ -20,5 +21,5 @@ export default function Layout({
 Layout.propTypes = {
   children: PropTypes.node,
   noNav: PropTypes.bool,
-  containerSize: PropTypes.string
+  containerSize: PropTypes.string,
 };

@@ -1,10 +1,10 @@
-import Button from './Button.js';
-import PropTypes from 'prop-types';
-import React, {useState} from 'react';
-import ReviewRating from './ReviewRating';
-import {Flex, Stack, Text, Textarea} from '@chakra-ui/react';
-import {GET_LOCATION_DETAILS} from '../pages/Location';
-import {gql, useMutation} from '@apollo/client';
+import Button from "./Button.js";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import ReviewRating from "./ReviewRating";
+import { Flex, Stack, Text, Textarea } from "@chakra-ui/react";
+import { GET_LOCATION_DETAILS } from "../pages/Location";
+import { gql, useMutation } from "@apollo/client";
 
 export const SUBMIT_REVIEW = gql`
   mutation submitReview($review: ReviewInput) {
@@ -21,27 +21,27 @@ export const SUBMIT_REVIEW = gql`
   }
 `;
 
-export default function SubmitReview({locationId}) {
-  const [comment, setComment] = useState('');
+export default function SubmitReview({ locationId }) {
+  const [comment, setComment] = useState("");
   const [rating, setRating] = useState(null);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
-  const handleChange = event => setComment(event.target.value);
+  const handleChange = (event) => setComment(event.target.value);
 
   const [submitReview] = useMutation(SUBMIT_REVIEW, {
     variables: {
-      review: {comment, rating: parseInt(rating, 10), locationId}
+      review: { comment, rating: parseInt(rating ?? "", 10), locationId },
     },
     refetchQueries: [
-      {query: GET_LOCATION_DETAILS, variables: {locationId}}, // DocumentNode object parsed with gql
-      'getLocationDetails' // Query name
+      { query: GET_LOCATION_DETAILS, variables: { locationId } }, // DocumentNode object parsed with gql
+      "getLocationDetails", // Query name
     ],
-    onCompleted: () => setHasSubmittedForm(true)
+    onCompleted: () => setHasSubmittedForm(true),
   });
 
   return !hasSubmittedForm ? (
     <Stack>
       <Stack direction="column" spacing="4">
-        <ReviewRating rating={rating} setReviewsInput={setRating} edit />
+        <ReviewRating rating={rating ?? 0} setReviewsInput={setRating} edit />
         <Textarea
           placeholder="Write your review here"
           size="lg"
@@ -62,5 +62,5 @@ export default function SubmitReview({locationId}) {
 }
 
 SubmitReview.propTypes = {
-  locationId: PropTypes.string
+  locationId: PropTypes.string,
 };

@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "workspaces": [
+    "client",
+    "gateway",
+    "subgraph-locations",
+    "subgraph-reviews"
+  ],
+  "engines": {
+    "node": ">=16"
+  }
+}
