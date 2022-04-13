@@ -21,12 +21,12 @@ export default function ReviewCard({ rating, comment, location }) {
       _hover={highlightStyles}
       _focus={highlightStyles}
       as={Link}
-      to={`/location/${location.id}`}
+      to={`/location/${location?.id}`}
     >
       <Stack spacing="32px" my="2" direction="column" justify="space-between">
         <ReviewRating isLight size={20} rating={rating} />
         <Heading as="h3" size="md">
-          {location.name}
+          {location?.name ?? "MISSING LOCATION NAME"}
         </Heading>
       </Stack>
       <Text noOfLines={3}>{comment}</Text>

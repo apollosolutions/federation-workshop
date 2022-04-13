@@ -23,12 +23,12 @@ export const GET_LOCATION_DETAILS = gql`
       name
       description
       photo
-      overallRating
-      reviews {
-        id
-        comment
-        rating
-      }
+      # overallRating
+      # reviews {
+      #   id
+      #   comment
+      #   rating
+      # }
     }
   }
 `;
@@ -41,7 +41,13 @@ export default function Location() {
   });
   if (loading) return <Spinner />;
   if (error) return <Error error={error.message} />;
-  const { name, description, photo, reviews, overallRating } = data?.location;
+  const {
+    name,
+    description,
+    photo,
+    reviews = [],
+    overallRating = null,
+  } = data?.location;
   return (
     <>
       {data && (

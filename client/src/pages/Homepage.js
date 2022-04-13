@@ -20,22 +20,22 @@ export const GET_LATEST_REVIEWS_AND_LOCATIONS = gql`
       id
       name
       description
-      overallRating
+      # overallRating
       photo
-      reviews {
-        id
-        comment
-        rating
-      }
+      # reviews {
+      #   id
+      #   comment
+      #   rating
+      # }
     }
     latestReviews {
       id
       comment
       rating
-      location {
-        id
-        name
-      }
+      # location {
+      #   id
+      #   name
+      # }
     }
   }
 `;

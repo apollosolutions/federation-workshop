@@ -16,7 +16,7 @@ export default function LocationCard({
   id,
   name,
   photo,
-  overallRating,
+  overallRating = null,
   reviews = [],
 }) {
   const { comment } = reviews[0] ?? {};
