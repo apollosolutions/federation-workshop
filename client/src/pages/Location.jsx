@@ -1,9 +1,9 @@
 import React from "react";
-import ReviewRating from "../components/ReviewRating";
+import ReviewRating from "../components/ReviewRating.jsx";
 
-import Spinner from "../components/Spinner";
-import SubmitReview from "../components/SubmitReview";
-import { Error } from "./Error";
+import Spinner from "../components/Spinner.jsx";
+import SubmitReview from "../components/SubmitReview.jsx";
+import { Error } from "./Error.jsx";
 import {
   Flex,
   HStack,

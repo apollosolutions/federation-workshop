@@ -1,9 +1,9 @@
 import React from "react";
-import LocationCard from "../components/LocationCard";
-import ReviewCard from "../components/ReviewCard";
-import { Error } from "./Error";
+import LocationCard from "../components/LocationCard.jsx";
+import ReviewCard from "../components/ReviewCard.jsx";
+import { Error } from "./Error.jsx";
 
-import Spinner from "../components/Spinner";
+import Spinner from "../components/Spinner.jsx";
 import {
   Heading,
   SimpleGrid,

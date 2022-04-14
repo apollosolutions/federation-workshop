@@ -1,7 +1,7 @@
-import Button from "./Button.js";
+import Button from "./Button.jsx";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import ReviewRating from "./ReviewRating";
+import ReviewRating from "./ReviewRating.jsx";
 import { Flex, Stack, Text, Textarea } from "@chakra-ui/react";
 import { GET_LOCATION_DETAILS } from "../pages/Location";
 import { gql, useMutation } from "@apollo/client";

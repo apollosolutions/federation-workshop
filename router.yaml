@@ -1,0 +1,7 @@
+server:
+  listen: 0.0.0.0:4000
+  cors:
+    allow_any_origin: true
+override_subgraph_url:
+  locations: http://host.docker.internal:4001/graphql
+  reviews: http://host.docker.internal:4002/graphql

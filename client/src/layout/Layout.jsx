@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/Nav";
+import Nav from "../components/Nav.jsx";
 import PropTypes from "prop-types";
 import { Container } from "@chakra-ui/react";
 

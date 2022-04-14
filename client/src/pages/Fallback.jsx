@@ -1,6 +1,6 @@
-import Button from "../components/Button";
+import Button from "../components/Button.jsx";
 import React from "react";
-import { Error } from "./Error";
+import { Error } from "./Error.jsx";
 import { Link } from "react-router-dom";
 
 export const Fallback = () => (

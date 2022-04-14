@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReviewRating from "./ReviewRating";
+import ReviewRating from "./ReviewRating.jsx";
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 

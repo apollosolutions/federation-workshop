@@ -1,5 +1,4 @@
 import { ApolloServer, gql } from "apollo-server";
-
 import { readFile } from "fs/promises";
 
 import resolvers from "./resolvers.js";
