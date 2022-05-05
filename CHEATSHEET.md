@@ -5,7 +5,7 @@
 Clone the repo
 
 ```sh
-git clone $TODO
+git clone https://github.com/apollosolutions/federation-workshop.git
 ```
 
 Install dependencies
@@ -97,16 +97,6 @@ rover subgraph publish $APOLLO_GRAPH_REF \
 npm run start -w gateway
 ```
 
-_Optional: if you have Docker installed:_
-
-```sh
-docker run -e "APOLLO_KEY=$APOLLO_KEY" \
-  -e "APOLLO_GRAPH_REF=$APOLLO_GRAPH_REF" \
-  -p 4000:4000 \
-  -v $(PWD)/router.yaml:/dist/config/router.yaml \
-  ghcr.io/apollographql/router:v0.1.0-preview.6
-```
-
 ```graphql
 query GetLatestReviewsAndLocations {
   locations {
@@ -121,6 +111,16 @@ query GetLatestReviewsAndLocations {
     rating
   }
 }
+```
+
+_Optional: if you have Docker installed:_
+
+```sh
+docker run -e "APOLLO_KEY=$APOLLO_KEY" \
+  -e "APOLLO_GRAPH_REF=$APOLLO_GRAPH_REF" \
+  -p 4000:4000 \
+  -v $(PWD)/router.yaml:/dist/config/router.yaml \
+  ghcr.io/apollographql/router:v0.1.0-preview.6
 ```
 
 ```sh

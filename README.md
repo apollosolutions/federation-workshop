@@ -2,7 +2,7 @@
 
 Welcome to FlyBy, the companion app of the "Federation 2 from Day One" Workshop
 
-This is a fork of the FlyBy app used in the [Voyage I course](https://odyssey.apollographql.com/federation-part1/) in Odyssey, Apollo's learning platform. If you're looking for a self-directive course for learning Federation, check it out!
+This is a fork of the FlyBy app used in the [Voyage I course](https://www.apollographql.com/tutorials/voyage-part1/) in Odyssey, Apollo's learning platform. If you're looking for a self-directed course for learning Federation, check it out!
 
 You can [preview the completed demo app here](https://odyssey-flyby.netlify.app/).
 
@@ -16,7 +16,7 @@ You can [preview the completed demo app here](https://odyssey-flyby.netlify.app/
 
 1. Clone this repo
    ```sh
-   git clone git@github.com:apollosolutions/federation-workshop.git
+   git clone https://github.com/apollosolutions/federation-workshop.git
    cd federation-workshop
    ```
 2. Install NPM packages
