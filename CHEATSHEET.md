@@ -170,6 +170,15 @@ type Location @key(fields: "id") {
 }
 ```
 
+```js
+// subgraph-reviews/resolvers.js
+Review: {
+  location(review) {
+    return { id: review.locationId };
+  }
+}
+```
+
 ```graphql
 # subgraph-locations/locations.graphql
 type Location @key(fields: "id") {
@@ -182,6 +191,30 @@ Location: {
     return dataSources.locationsAPI.getLocation(location.id);
   },
 },
+```
+
+```graphql
+query _entities($representations: [_Any!]!) {
+  _entities(representations: $representations) {
+    ... on Location {
+      id
+      name
+      description
+      photo
+    }
+  }
+}
+```
+
+```json
+{
+  "representations": [
+    {
+      "__typename": "Location",
+      "id": "loc-1"
+    }
+  ]
+}
 ```
 
 ```graphql
@@ -203,4 +236,29 @@ Location: {
     return dataSources.reviewsAPI.getReviewsForLocation(location.id);
   },
 },
+```
+
+```graphql
+query _entities($representations: [_Any!]!) {
+  _entities(representations: $representations) {
+    ... on Location {
+      id
+      overallRating
+      reviews {
+        comment
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "representations": [
+    {
+      "__typename": "Location",
+      "id": "loc-1"
+    }
+  ]
+}
 ```
