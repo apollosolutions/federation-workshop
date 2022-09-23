@@ -22,6 +22,14 @@ Install rover
 curl -sSL https://rover.apollo.dev/nix/latest | sh
 ```
 
+Install Apollo Router
+
+[https://www.apollographql.com/docs/router/quickstart](https://www.apollographql.com/docs/router/quickstart)
+
+```sh
+curl -sSL https://router.apollo.dev/download/nix/latest | sh
+```
+
 ## Create Studio account
 
 [https://studio.apollographql.com/login](https://studio.apollographql.com/login)
@@ -69,11 +77,11 @@ query LatestReviews {
 
 ## Managed Federation
 
-Store variables in `gateway/.env`
+Store variables in `.env`
 
 ```sh
-APOLLO_KEY=service:xxx
-APOLLO_GRAPH_REF=xxx@current
+export APOLLO_KEY=service:xxx
+export APOLLO_GRAPH_REF=xxx@current
 ```
 
 ```sh
@@ -94,7 +102,8 @@ rover subgraph publish $APOLLO_GRAPH_REF \
 ```
 
 ```sh
-npm run start -w gateway
+source .env
+./router --config router.yaml
 ```
 
 ```graphql
@@ -111,16 +120,6 @@ query GetLatestReviewsAndLocations {
     rating
   }
 }
-```
-
-_Optional: if you have Docker installed:_
-
-```sh
-docker run -e "APOLLO_KEY=$APOLLO_KEY" \
-  -e "APOLLO_GRAPH_REF=$APOLLO_GRAPH_REF" \
-  -p 4000:4000 \
-  -v $(PWD)/router.yaml:/dist/config/router.yaml \
-  ghcr.io/apollographql/router:v0.1.0-preview.6
 ```
 
 ```sh
@@ -149,8 +148,7 @@ const server = new ApolloServer({
 # subgraph-reviews/reviews.graphql
 # subgraph-locations/locations.graphql
 extend schema
-    @link(url: "https://specs.apollo.dev/federation/v2.0",
-          import: ["@key"])
+  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
 ```
 
 ```graphql
@@ -262,3 +260,13 @@ query _entities($representations: [_Any!]!) {
   ]
 }
 ```
+
+## Resources
+
+- [odyssey-flyby.netlify.app](https://odyssey-flyby.netlify.app)
+- [apollographql.com/tutorials](https://www.apollographql.com/tutorials)
+  - [Voyage Part 1](https://www.apollographql.com/tutorials/voyage-part1)
+- [Subgraph libraries](https://www.apollographql.com/docs/federation/other-servers)
+- [Automate subgraph publishing in CI](https://www.apollographql.com/docs/rover/ci-cd)
+- [Subgraph check to detect breaking changes](https://www.apollographql.com/docs/studio/schema-checks)
+- [Additional Federation features](https://www.apollographql.com/docs/federation/federated-types/federated-directives)
