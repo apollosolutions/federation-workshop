@@ -1,15 +1,24 @@
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
 import { readFile } from "fs/promises";
+import { parse } from "graphql";
 
 import resolvers from "./resolvers.js";
 import LocationsAPI from "./datasources/locations-api.js";
 
-const typeDefs = gql(await readFile("./locations.graphql", "utf8"));
+const typeDefs = parse(await readFile("./locations.graphql", "utf8"));
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context() {
+});
+
+const port = 4001;
+const subgraphName = "locations";
+
+const { url } = await startStandaloneServer(server, {
+  listen: { port },
+  async context() {
     return {
       dataSources: {
         locationsAPI: new LocationsAPI(),
@@ -18,8 +27,4 @@ const server = new ApolloServer({
   },
 });
 
-const port = 4001;
-const subgraphName = "locations";
-
-const { url } = await server.listen({ port });
 console.log(`🚀 Subgraph ${subgraphName} running at ${url}`);
