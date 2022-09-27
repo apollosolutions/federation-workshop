@@ -27,3 +27,7 @@ You can [preview the completed demo app here](https://odyssey-flyby.netlify.app/
    ```sh
    curl -sSL https://rover.apollo.dev/nix/latest | sh
    ```
+4. Install [Apollo Router](https://www.apollographql.com/docs/router/)
+   ```sh
+   curl -sSL https://router.apollo.dev/download/nix/latest | sh
+   ```
