@@ -84,6 +84,11 @@ export APOLLO_KEY=service:xxx
 export APOLLO_GRAPH_REF=xxx@current
 ```
 
+Source the env variables to use in terminal
+```sh
+source .env
+```
+
 ```sh
 rover config auth
 # enter api key
