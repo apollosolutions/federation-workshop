@@ -108,7 +108,7 @@ rover subgraph publish $APOLLO_GRAPH_REF \
 
 ```sh
 source .env
-./router --dev --config router.yaml
+./router --config router.yaml
 ```
 
 ```graphql
