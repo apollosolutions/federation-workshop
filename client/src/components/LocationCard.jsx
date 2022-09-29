@@ -55,8 +55,11 @@ export default function LocationCard({
             </Flex>
           </Flex>
         ) : (
-          <Flex direction="row" justify="right">
-            <Button>Leave a Review</Button>
+          <Flex direction="column" minH="100px" justify="space-between">
+            <Text as="i" noOfLines={2}>NO REVIEWS</Text>
+              <Flex direction="row" justify="right">
+                <Button>Leave a Review</Button>
+              </Flex>
           </Flex>
         )}
       </Flex>
