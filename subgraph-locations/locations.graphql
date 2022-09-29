@@ -1,5 +1,3 @@
-# noinspection GraphQLTypeRedefinition
-
 type Query {
   "The full list of locations presented by the Interplanetary Space Tourism department"
   locations: [Location!]!
