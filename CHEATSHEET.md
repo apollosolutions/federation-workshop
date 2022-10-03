@@ -126,6 +126,8 @@ query GetLatestReviewsAndLocations {
 }
 ```
 
+explore in the apollo studio, https://studio.apollographql.com/graph/<graph>/explorer?variant=current
+
 ```sh
 npm run start -w client
 ```
