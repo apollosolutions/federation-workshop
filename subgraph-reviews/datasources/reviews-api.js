@@ -4,13 +4,7 @@ const require = createRequire(import.meta.url);
 const data = require("./reviews_data.json");
 let reviews = data.reviews;
 
-/**
- * @typedef {import("apollo-datasource").DataSource} DataSource
- * @implements DataSource
- */
 export default class ReviewsAPI {
-  initialize() {}
-
   // SELECT * FROM reviews WHERE id = ?
   getReview(id) {
     return reviews.find((r) => r.id === id);
