@@ -107,7 +107,6 @@ rover subgraph publish $APOLLO_GRAPH_REF \
 ```
 
 ```sh
-source .env
 ./router --config router.yaml
 ```
 
@@ -126,6 +125,8 @@ query GetLatestReviewsAndLocations {
   }
 }
 ```
+
+explore in the apollo studio, https://studio.apollographql.com/graph/<graph>/explorer?variant=current
 
 ```sh
 npm run start -w client
